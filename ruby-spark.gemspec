@@ -20,15 +20,9 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ['lib']
 
-  if RUBY_PLATFORM =~ /java/
-    spec.platform = 'java'
+  spec.platform = 'java'
+  extensions = ['ext/ruby_java/extconf.rb']
 
-    extensions = ['ext/ruby_java/extconf.rb']
-  else
-    extensions = ['ext/ruby_c/extconf.rb']
-
-    spec.add_dependency 'rjb'
-  end
 
   spec.extensions = extensions
   spec.required_ruby_version = '>= 2.0'
